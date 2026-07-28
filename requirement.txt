@@ -1,6 +1,0 @@
-pytest>=9.0.0
-pytest-playwright>=0.7.0
-pydantic>=2.10.0
-python-dotenv>=1.0.0
-allure-pytest>=2.15.0
-requests>=2.32.0
