@@ -29,12 +29,15 @@ jobs:
           pip install -r requirements.txt
 
       - name: Ensure allure-results directory exists
-        run: mkdir -p allure-results
+        run: mkdir -p ${{ github.workspace }}/allure-results
 
       - name: Run Pytest Automation Suite
         run: |
-          python -m pytest tests/ --alluredir=allure-results -v
+          python -m pytest tests/ --alluredir=${{ github.workspace }}/allure-results -v
         continue-on-error: true
+
+      - name: Verify Allure Results Generated
+        run: ls -la ${{ github.workspace }}/allure-results
 
       - name: Get Allure History
         uses: actions/checkout@v4
@@ -49,6 +52,8 @@ jobs:
         if: always()
         with:
           allure_results: allure-results
+          gh_pages: gh-pages-dir
+          allure_report: allure-report
           allure_history: allure-history
           keep_reports: 20
 
