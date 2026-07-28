@@ -1,0 +1,6 @@
+pytest
+pytest-playwirght
+pydantic
+python-dotenv
+allure-pytest
+requests
