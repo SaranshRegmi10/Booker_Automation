@@ -1,0 +1,1 @@
+{"uuid": "2715efd4-de75-487a-9fa5-3cf656e1c400", "children": ["61873396-66f8-4960-ac50-9f938c68904d"], "befores": [{"name": "sample_booking_payload", "status": "passed", "start": 1785309998392, "stop": 1785309998392}], "afters": [{"name": "sample_booking_payload::<lambda>", "start": 1785309999493}], "start": 1785309998392, "stop": 1785309999493}
