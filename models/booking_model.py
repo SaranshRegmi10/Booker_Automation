@@ -1,5 +1,5 @@
 from typing import Optional
-from pydantic import BaseModel,ConfigDict,Field
+from pydantic import BaseModel,ConfigDict
 
 #BookingDate: Encapsulates the check-in/check-out dates so it can be re-used inside booking
 class BookingDates(BaseModel):

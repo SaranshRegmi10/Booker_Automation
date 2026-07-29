@@ -13,7 +13,7 @@ class AuthClient(BaseClient):
         payload = AuthRequest(username=username,password=password).model_dump()
         response = self.post("/auth",data=payload)
 
-        #validates status code and parse response through Pydantic
+    #validates status code and parse response through Pydantic
         response.raise_for_status()
     #AuthResponse(**response.json()), instantly validates that the server returend a valid dictionary containing tokens
         auth_response = AuthResponse(**response.json())

@@ -31,6 +31,16 @@ class BookingService(BaseClient):
         response.raise_for_status()
         return Booking(**response.json())
 
+    def partial_update_booking(self,booking_id:str,partial_data:dict,token:str):
+        headers = {"Cookies",f"token={token}"}
+        response = self.patch(
+            f"/booking/{booking_id}",
+            data = partial_data,
+            headers= headers,
+        )
+        response.raise_for_status()
+        return Booking(**response.json())
+
     def delete_booking(self,booking_id:str,token:str):
         headers = {"Cookie":f"token={token}"}
         response = self.delete(f"/booking/{booking_id}",headers=headers)
