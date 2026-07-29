@@ -1,0 +1,22 @@
+import allure
+import pytest 
+from pydantic import ValidationError
+
+@allure.epic("Data Integrity")
+@allure.feature("Schema Validation")
+class TestBookSchema:
+
+    @allure.story("Fail Local Payload Creation on Invalid Data Types")
+    def test_pydantic_schema_type(self):
+
+        with pytest.raises(ValidationError) as exc_info:
+            from models.booking_model import Booking,BookingDates
+
+            Booking(
+                firstname="Test",
+                lastname = "User",
+                totalprice= "NOT_A_NUMBER",
+                depositpaid= True,
+                bookingdates= BookingDates(checkin="2026-08-01",checkout="2026-08-05")
+            )
+            assert "totalprice" in str(exc_info.value)
