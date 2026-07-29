@@ -39,6 +39,6 @@ class TestBookingBoundary:
         )
         response = booking_service.create_booking(payloads)
 
-        assert response.bookingis is not None
+        assert response.bookingid is not None
         assert response.booking.firstname == firstname
         assert response.booking.totalprice == price
